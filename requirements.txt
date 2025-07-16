@@ -4,4 +4,4 @@ torch
 transformers
 numpy
 requests
-uvicorn
+gunicorn

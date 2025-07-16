@@ -13,12 +13,14 @@
 ## 🛠️ Tech Stack
 
 ### Backend
+
 - **Python 3.11+**
 - **Flask** - Web framework
 - **NLTK**, **spaCy**, **TextBlob** - NLP processing and advanced rewriting
 - **Transformers** (HuggingFace) - Paraphrasing and rewriting models (T5, BART, Pegasus)
 
 ### Frontend
+
 - **SvelteKit** - Modern, component-based UI framework
 - **Vite** - Fast build tool and dev server
 - **Svelte Stores** - Reactive state management
@@ -54,39 +56,52 @@ humanizer/
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Python 3.11+
 - Node.js 16+
 - Git
 
 ### Installation
 
-
 2. **Backend Setup**
+
    ```bash
    # Install Python dependencies
    pip install -r requirements.txt
-   
+
    # Download required models
    python download_models.py
-   
+
    # Start the backend server
    python main.py
    ```
+
    The API server will start at `http://localhost:8080`
 
+## Running the Flask App with Gunicorn
+
+To run the app in production, use Gunicorn:
+
+```
+gunicorn -w 4 -b 0.0.0.0:8080 main:app
+```
+
+- `-w 4` sets the number of worker processes (adjust as needed)
+- `-b 0.0.0.0:8080` binds to all interfaces on port 8080
+- `main:app` refers to the `app` variable in `main.py`
 
 ## 📡 API Endpoints
 
-| Endpoint | Description |
-|----------|-------------|
-| `/paraphrase_only` | Paraphrase text with selected model |
-| `/rewrite_only` | Rewrite text for humanization |
-| `/paraphrase_multi` | Paraphrase with multiple models |
-| `/paraphrase_all` | Paraphrase with all available models |
-| `/highlight_ai` | Highlight detected AI-generated sentences/lines |
-| `/humanize_and_check` | Humanize and verify in one step |
-| `/models` | List available models |
-| `/health` | Backend health check |
+| Endpoint              | Description                                     |
+| --------------------- | ----------------------------------------------- |
+| `/paraphrase_only`    | Paraphrase text with selected model             |
+| `/rewrite_only`       | Rewrite text for humanization                   |
+| `/paraphrase_multi`   | Paraphrase with multiple models                 |
+| `/paraphrase_all`     | Paraphrase with all available models            |
+| `/highlight_ai`       | Highlight detected AI-generated sentences/lines |
+| `/humanize_and_check` | Humanize and verify in one step                 |
+| `/models`             | List available models                           |
+| `/health`             | Backend health check                            |
 
 ## ⚙️ Configuration
 
@@ -103,7 +118,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
 
 ## 🙏 Acknowledgments
 
